@@ -8,12 +8,13 @@
 #define __TOKEN_H__
 
 #define MAX_IDENT_LEN 15
-#define KEYWORDS_COUNT 20
+#define KEYWORDS_COUNT 21
 
 typedef enum {
   TK_NONE,    // đại diện cho 1 lỗi
   TK_IDENT,   // định danh
   TK_NUMBER,  // số
+  TK_FLOAT, // float
   TK_CHAR,    // hằng kí tự
   TK_EOF,     // kết thúc chương trình
 
@@ -24,12 +25,13 @@ typedef enum {
   KW_BEGIN, KW_END, KW_CALL,
   KW_IF, KW_THEN, KW_ELSE,
   KW_WHILE, KW_DO, KW_FOR, KW_TO,
+  KW_FLOAT,
 
   // các kí hiệu đặc biệt
   SB_SEMICOLON, SB_COLON, SB_PERIOD, SB_COMMA,
   SB_ASSIGN, SB_EQ, SB_NEQ, SB_LT, SB_LE, SB_GT, SB_GE,
   SB_PLUS, SB_MINUS, SB_TIMES, SB_SLASH,
-  SB_LPAR, SB_RPAR, SB_LSEL, SB_RSEL
+  SB_LPAR, SB_RPAR, SB_LSEL, SB_RSEL, SB_LBRACKET, SB_RBRACKET
 } TokenType; 
 
 // cấu trúc lưu trữ của một token

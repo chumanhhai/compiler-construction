@@ -1,3 +1,5 @@
 Program Example1; (* Example 1 *)
 Begin
+VAR f:float;
+f:=[3.1415]
 End. (* Example 1 *)
