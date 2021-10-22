@@ -139,6 +139,7 @@ Token* getToken(void) {
     case CHAR_EQ: return createOneCharacterToken(SB_EQ);
     case CHAR_SEMICOLON: return createOneCharacterToken(SB_SEMICOLON);
     case CHAR_COMMA: return createOneCharacterToken(SB_COMMA);
+    case CHAR_PERIOD: return createOneCharacterToken(SB_PERIOD);
     case CHAR_RPAR: return createOneCharacterToken(SB_RPAR);
     case CHAR_GT:
       readChar();
