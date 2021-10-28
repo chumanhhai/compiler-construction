@@ -1,5 +1,12 @@
 Program Example1; (* Example 1 *)
 Begin
 VAR f:float;
-f:=[3.1415]
+    n:integer;
+n:=4;
+n:=n%4;
+f:=3.1415;
+f+=2.1;
+f-=4.5;
+f/=2.7;
+f*=4.5;
 End. (* Example 1 *)

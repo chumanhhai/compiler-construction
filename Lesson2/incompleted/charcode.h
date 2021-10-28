@@ -28,6 +28,7 @@ typedef enum {
   CHAR_RPAR,   // )
   CHAR_LBRACKET, // [
   CHAR_RBRACKET, // ]
+  CHAR_MOD, // %
   CHAR_UNKNOWN // ki tu khac
 } CharCode;
 

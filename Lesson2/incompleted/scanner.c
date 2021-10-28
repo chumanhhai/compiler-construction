@@ -132,15 +132,12 @@ Token* getToken(void) {
     case CHAR_SPACE: skipBlank(); return getToken();
     case CHAR_LETTER: return readIdentKeyword();
     case CHAR_DIGIT: return readNumber();
-    case CHAR_PLUS: return createOneCharacterToken(SB_PLUS);
-    case CHAR_MINUS: return createOneCharacterToken(SB_MINUS);
-    case CHAR_TIMES: return createOneCharacterToken(SB_TIMES);
-    case CHAR_SLASH: return createOneCharacterToken(SB_SLASH);
     case CHAR_EQ: return createOneCharacterToken(SB_EQ);
     case CHAR_SEMICOLON: return createOneCharacterToken(SB_SEMICOLON);
     case CHAR_COMMA: return createOneCharacterToken(SB_COMMA);
     case CHAR_PERIOD: return createOneCharacterToken(SB_PERIOD);
     case CHAR_RPAR: return createOneCharacterToken(SB_RPAR);
+    case CHAR_MOD: return createOneCharacterToken(SB_MOD);
     case CHAR_GT:
       readChar();
       if(charCodes[currentChar] == CHAR_EQ) {
@@ -169,6 +166,34 @@ Token* getToken(void) {
         return makeToken(SB_ASSIGN, ln, cn);
       }
       return makeToken(SB_COLON, ln, cn);
+    case CHAR_PLUS:
+      readChar();
+      if(charCodes[currentChar] == CHAR_EQ) {
+        readChar();
+        return makeToken(SB_ASSIGN_PLUS, ln, cn);
+      }
+      return makeToken(SB_PLUS, ln, cn);
+    case CHAR_MINUS:
+      readChar();
+      if(charCodes[currentChar] == CHAR_EQ) {
+        readChar();
+        return makeToken(SB_ASSIGN_SUBTRACT, ln, cn);
+      }
+      return makeToken(SB_MINUS, ln, cn);
+    case CHAR_TIMES:
+      readChar();
+      if(charCodes[currentChar] == CHAR_EQ) {
+        readChar();
+        return makeToken(SB_ASSIGN_TIMES, ln, cn);
+      }
+      return makeToken(SB_TIMES, ln, cn);
+    case CHAR_SLASH:
+      readChar();
+      if(charCodes[currentChar] == CHAR_EQ) {
+        readChar();
+        return makeToken(SB_ASSIGN_DIVIDE, ln, cn);
+      }
+      return makeToken(SB_SLASH, ln, cn);
     case CHAR_SINGLEQUOTE:
       readChar();
       return readConstChar();
@@ -234,6 +259,10 @@ void printToken(Token *token) {
   case SB_PERIOD: printf("SB_PERIOD\n"); break;
   case SB_COMMA: printf("SB_COMMA\n"); break;
   case SB_ASSIGN: printf("SB_ASSIGN\n"); break;
+  case SB_ASSIGN_PLUS: printf("SB_ASSIGN_PLUS\n"); break;
+  case SB_ASSIGN_SUBTRACT: printf("SB_ASSIGN_SUBTRACT\n"); break;
+  case SB_ASSIGN_TIMES: printf("SB_ASSIGN_TIMES\n"); break;
+  case SB_ASSIGN_DIVIDE: printf("SB_ASSIGN_DIVIDE\n"); break;
   case SB_EQ: printf("SB_EQ\n"); break;
   case SB_NEQ: printf("SB_NEQ\n"); break;
   case SB_LT: printf("SB_LT\n"); break;
@@ -244,6 +273,7 @@ void printToken(Token *token) {
   case SB_MINUS: printf("SB_MINUS\n"); break;
   case SB_TIMES: printf("SB_TIMES\n"); break;
   case SB_SLASH: printf("SB_SLASH\n"); break;
+  case SB_MOD: printf("SB_MOD\n"); break;
   case SB_LPAR: printf("SB_LPAR\n"); break;
   case SB_RPAR: printf("SB_RPAR\n"); break;
   case SB_LBRACKET: printf("SB_LBRACKET\n"); break;

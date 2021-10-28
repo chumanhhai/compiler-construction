@@ -32,7 +32,7 @@ struct {
   {"DO", KW_DO},
   {"FOR", KW_FOR},
   {"TO", KW_TO},
-  {"float", KW_FLOAT}
+  {"FLOAT", KW_FLOAT}
 };
 
 int keywordEq(char *kw, char *string) {
