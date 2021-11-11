@@ -1,0 +1,1 @@
+gcc reader.c charcode.c token.c error.c scanner.c parser.c main.c -o main
