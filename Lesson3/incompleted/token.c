@@ -111,6 +111,11 @@ char *tokenToString(TokenType tokenType) {
   case SB_RSEL: return "\'.)\'";
   case SB_LBRACKET: return "\'[\'";
   case SB_RBRACKET: return "\']\'";
+  case SB_MOD: return "\'%\'";
+  case SB_ASSIGN_DIVIDE: return "\'/=\'";
+  case SB_ASSIGN_PLUS: return "\'+=\'";
+  case SB_ASSIGN_SUBTRACT: return "\'-=\'";
+  case SB_ASSIGN_TIMES: return "\'*=\'";
   default: return "";
   }
 }

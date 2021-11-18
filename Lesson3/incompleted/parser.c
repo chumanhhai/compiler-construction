@@ -376,7 +376,23 @@ void compileAssignSt(void) {
     compileExpression();
     eat(SB_RBRACKET);
   }
-  eat(SB_ASSIGN);
+  switch(lookAhead->tokenType) {
+    case SB_ASSIGN_DIVIDE:
+      eat(SB_ASSIGN_DIVIDE);
+      break;
+    case SB_ASSIGN_TIMES:
+      eat(SB_ASSIGN_TIMES);
+      break;
+    case SB_ASSIGN_PLUS:
+      eat(SB_ASSIGN_PLUS);
+      break;
+    case SB_ASSIGN_SUBTRACT:
+      eat(SB_ASSIGN_SUBTRACT);
+      break;
+    default:
+      eat(SB_ASSIGN);
+      break;
+  }
   compileExpression();
   assert("Assign statement parsed ....");
 }
@@ -553,6 +569,11 @@ void compileTerm2(void) {
     break;
   case SB_SLASH:
     eat(SB_SLASH);
+    compileFactor();
+    compileTerm2();
+    break;
+  case SB_MOD:
+    eat(SB_MOD);
     compileFactor();
     compileTerm2();
     break;

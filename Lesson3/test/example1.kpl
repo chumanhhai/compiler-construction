@@ -1,7 +1,12 @@
 Program Example1; (* Example 1 *)
 Var f:Float;
-arr:Array[4] of Integer;
+arr: Array[4] of Integer;
 Begin
 f := 2.3;
 arr[4] := 5;
+f += 2;
+f -= arr[3] % 2;
+f /= 2;
+f *= 2;
+f := f % 2;
 End. (* Example 1 *)
